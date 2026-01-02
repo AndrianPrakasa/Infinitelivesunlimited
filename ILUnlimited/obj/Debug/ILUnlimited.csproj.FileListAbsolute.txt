@@ -1,3 +1,5 @@
+C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\obj\Debug\ILUnlimited.csproj.AssemblyReference.cache
+C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\obj\Debug\ILUnlimited.csproj.CoreCompileInputs.cache
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\ILUnlimited.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\ILUnlimited.pdb
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\0Harmony.dll
@@ -5,6 +7,7 @@ C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\Assembly-CSharp.dl
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\BepInEx.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.CoreModule.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.dll
+C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.InputLegacyModule.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\Mono.Cecil.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\MonoMod.Utils.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\MonoMod.RuntimeDetour.dll
@@ -12,7 +15,6 @@ C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\netstandard.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.AnimationModule.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.ParticleSystemModule.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.UI.dll
-C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.InputLegacyModule.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.AssetBundleModule.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\UnityEngine.AudioModule.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\com.rlabrecque.steamworks.net.dll
@@ -78,8 +80,6 @@ C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\0Harmony.xml
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\BepInEx.xml
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\MonoMod.Utils.xml
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\bin\Debug\MonoMod.RuntimeDetour.xml
-C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\obj\Debug\ILUnlimited.csproj.AssemblyReference.cache
-C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\obj\Debug\ILUnlimited.csproj.CoreCompileInputs.cache
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\obj\Debug\ILUnlimi.8829457B.Up2Date
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\obj\Debug\ILUnlimited.dll
 C:\Users\andri\source\repos\ILUnlimited\ILUnlimited\obj\Debug\ILUnlimited.pdb

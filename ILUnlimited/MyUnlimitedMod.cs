@@ -1,15 +1,25 @@
 ﻿using HarmonyLib;
 using BepInEx;
+using BepInEx.Configuration; // Wajib untuk fitur Config
 using UnityEngine;
 using System;
 using System.Reflection;
 
-[BepInPlugin("com.anda.infinitelives.godfix_bai", "God Stats 5050 - Gameplay Fix", "1.0.0")]
-public class MyGodFixBai : BaseUnityPlugin
+[BepInPlugin("Hans.ILSlider", "Unlimited Slider by Hans", "1.0.0")]
+public class MyGodSuperFix : BaseUnityPlugin
 {
+    // 1. Definisi Config
+    public static ConfigEntry<bool> EnableInfiniteStamina;
+
     void Awake()
     {
-        var harmony = new Harmony("com.anda.infinitelives.godfix_bai");
+        // 2. Inisialisasi Config (Default: true / Nyala)
+        EnableInfiniteStamina = Config.Bind("General",
+                                            "InfiniteStamina",
+                                            true,
+                                            "Set to true for unlimited spirit. Set to false for normal drain.");
+
+        var harmony = new Harmony("com.anda.infinitelives.godfix_super");
         harmony.PatchAll();
     }
 }
@@ -81,7 +91,6 @@ class Patch_RoutineCheck
 
 // =====================================================================
 // 3. GAMEPLAY FIX (Method 'bai' di Player.cs)
-// INI SOLUSINYA!
 // =====================================================================
 [HarmonyPatch(typeof(Player), "bai")]
 class Patch_GameplayStatCalc
@@ -91,16 +100,10 @@ class Patch_GameplayStatCalc
         // Cek apakah ini Player Utama (Star)
         if (__instance.fmp == Characters.star)
         {
-            // 'fok' adalah array float yang menyimpan stat aktif saat ini (Gameplay Stat)
-            // Indeks: 1=Popularity?, 2=Strength, 3=Skill, 4=Agility, 5=Stamina
-
-            // Kita loop stat tempur (biasanya index 2 sampai 5)
-            for (int j = 2; j <= 5; j++)
+            // --- BAGIAN 1: STAT FIX (Agar tetap 5050) ---
+            for (int j = 1; j <= 6; j++)
             {
-                // Ambil nilai asli dari Database (fmq)
                 float baseStat = 0f;
-
-                // Cek wujud apa? (fth.id == 2 biasanya Super)
                 if (__instance.fth.id == 2)
                 {
                     baseStat = __instance.fmq.superStat[j];
@@ -110,21 +113,34 @@ class Patch_GameplayStatCalc
                     baseStat = __instance.fmq.stat[j];
                 }
 
-                // Jika base stat kita tinggi (misal 5000), 
-                // tapi game baru saja memotongnya jadi 200 di method asli...
-                // KEMBALIKAN KE NILAI TINGGI!
                 if (baseStat > 200f)
                 {
-                    // Kita bisa tambahkan sedikit logika penalty jika mau (misal saat cedera),
-                    // tapi untuk God Mode murni, kita langsung timpa saja.
                     __instance.fok[j] = baseStat;
                 }
             }
 
-            // Fix Health (foa) jika perlu
-            // foa biasanya adalah health persentase (0.0 - 1.0) atau nilai mutlak tergantung game.
-            // Di sini kita pastikan tidak dicap.
-            // (Opsional, tergantung implementasi foa di method lain)
+            // --- BAGIAN 2: HEALTH FIX ---
+            if (__instance.foa > 5050f) __instance.foa = 5050f;
+
+            // --- BAGIAN 3: SPIRIT FIX ---
+
+            // A. Pastikan Max Spirit Besar (Selalu Aktif agar bar tidak glitch)
+            float targetMaxSpirit = __instance.foa * 10f;
+            if (__instance.foi < targetMaxSpirit)
+            {
+                __instance.foi = targetMaxSpirit;
+            }
+
+            // B. CEK CONFIG UNTUK INFINITE STAMINA
+            // Jika Config True -> Isi Penuh Terus
+            // Jika Config False -> Biarkan berkurang (mungkin cepat habis karena stat 5050)
+            if (MyGodSuperFix.EnableInfiniteStamina.Value)
+            {
+                if (__instance.foh < __instance.foi)
+                {
+                    __instance.foh = __instance.foi;
+                }
+            }
         }
     }
 }
